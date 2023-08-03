@@ -71,3 +71,9 @@ if __name__ == '__main__':
     # The basicConfig() function ensures that the gRPC server's logs will be displayed on the console.
     logging.basicConfig() 
     serve()
+
+
+
+
+
+    # To ensure that the run function is executed 
