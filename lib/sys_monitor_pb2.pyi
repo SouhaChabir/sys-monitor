@@ -10,27 +10,23 @@ class RAMinfo(_message.Message):
     TOTAL_FIELD_NUMBER: _ClassVar[int]
     USED_FIELD_NUMBER: _ClassVar[int]
     FREE_FIELD_NUMBER: _ClassVar[int]
-    total: int
-    used: int
-    free: int
-    def __init__(self, total: _Optional[int] = ..., used: _Optional[int] = ..., free: _Optional[int] = ...) -> None: ...
+    total: float
+    used: float
+    free: float
+    def __init__(self, total: _Optional[float] = ..., used: _Optional[float] = ..., free: _Optional[float] = ...) -> None: ...
 
 class CPUFreq(_message.Message):
-    __slots__ = ["current", "min", "max"]
+    __slots__ = ["current"]
     CURRENT_FIELD_NUMBER: _ClassVar[int]
-    MIN_FIELD_NUMBER: _ClassVar[int]
-    MAX_FIELD_NUMBER: _ClassVar[int]
-    current: int
-    min: int
-    max: int
-    def __init__(self, current: _Optional[int] = ..., min: _Optional[int] = ..., max: _Optional[int] = ...) -> None: ...
+    current: float
+    def __init__(self, current: _Optional[float] = ...) -> None: ...
 
 class DISkinfo(_message.Message):
     __slots__ = ["total", "used", "free"]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
     USED_FIELD_NUMBER: _ClassVar[int]
     FREE_FIELD_NUMBER: _ClassVar[int]
-    total: int
-    used: int
-    free: int
-    def __init__(self, total: _Optional[int] = ..., used: _Optional[int] = ..., free: _Optional[int] = ...) -> None: ...
+    total: float
+    used: float
+    free: float
+    def __init__(self, total: _Optional[float] = ..., used: _Optional[float] = ..., free: _Optional[float] = ...) -> None: ...

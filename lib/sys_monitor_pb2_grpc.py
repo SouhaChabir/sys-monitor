@@ -16,17 +16,17 @@ class SystemMonitorStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.getRAMUsage = channel.unary_stream(
+        self.getRAMUsage = channel.unary_unary(
                 '/SystemMonitor/getRAMUsage',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=sys__monitor__pb2.RAMinfo.FromString,
                 )
-        self.getCPUUsage = channel.unary_stream(
+        self.getCPUUsage = channel.unary_unary(
                 '/SystemMonitor/getCPUUsage',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=sys__monitor__pb2.CPUFreq.FromString,
                 )
-        self.getDISkUsage = channel.unary_stream(
+        self.getDISkUsage = channel.unary_unary(
                 '/SystemMonitor/getDISkUsage',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=sys__monitor__pb2.DISkinfo.FromString,
@@ -59,17 +59,17 @@ class SystemMonitorServicer(object):
 
 def add_SystemMonitorServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'getRAMUsage': grpc.unary_stream_rpc_method_handler(
+            'getRAMUsage': grpc.unary_unary_rpc_method_handler(
                     servicer.getRAMUsage,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=sys__monitor__pb2.RAMinfo.SerializeToString,
             ),
-            'getCPUUsage': grpc.unary_stream_rpc_method_handler(
+            'getCPUUsage': grpc.unary_unary_rpc_method_handler(
                     servicer.getCPUUsage,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=sys__monitor__pb2.CPUFreq.SerializeToString,
             ),
-            'getDISkUsage': grpc.unary_stream_rpc_method_handler(
+            'getDISkUsage': grpc.unary_unary_rpc_method_handler(
                     servicer.getDISkUsage,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=sys__monitor__pb2.DISkinfo.SerializeToString,
@@ -96,7 +96,7 @@ class SystemMonitor(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/SystemMonitor/getRAMUsage',
+        return grpc.experimental.unary_unary(request, target, '/SystemMonitor/getRAMUsage',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             sys__monitor__pb2.RAMinfo.FromString,
             options, channel_credentials,
@@ -113,7 +113,7 @@ class SystemMonitor(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/SystemMonitor/getCPUUsage',
+        return grpc.experimental.unary_unary(request, target, '/SystemMonitor/getCPUUsage',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             sys__monitor__pb2.CPUFreq.FromString,
             options, channel_credentials,
@@ -130,7 +130,7 @@ class SystemMonitor(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/SystemMonitor/getDISkUsage',
+        return grpc.experimental.unary_unary(request, target, '/SystemMonitor/getDISkUsage',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             sys__monitor__pb2.DISkinfo.FromString,
             options, channel_credentials,
